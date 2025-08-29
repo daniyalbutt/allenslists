@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6 pl-0">
-                    <h1>Allens List</h1>
+                    <h1>{{ config('app.name', 'Laravel') }}</h1>
                 </div>
                 <div class="col-6 pr-0 header-2">
                     <div class="icon">
@@ -22,45 +22,9 @@
             <div class="box">
                 <!-- Options Section Row -->
                 <select class="form-control OP">
-                    <option value="IPHONE NEW LOCKED">
-                        IPHONE NEW LOCKED
-                    </option>
-                    <option value=" IPHONE NEW UNLOCKED">
-                        IPHONE NEW UNLOCKED
-                    </option>
-                    <option value="IPHONE USED LOCKED">
-                        IPHONE USED LOCKED
-                    </option>
-                    <option value=" IPHONE USED UNLOCKED">
-                        IPHONE USED UNLOCKED
-                    </option>
-                    <option value="SAMSUNG NEW LOCKED">
-                        SAMSUNG NEW LOCKED
-                    </option>
-                    <option value=" SAMSUNG NEW UNLOCKED">
-                        SAMSUNG NEW UNLOCKED
-                    </option>
-                    <option value="SAMSUNG USED LOCKED">
-                        SAMSUNG USED LOCKED
-                    </option>
-                    <option value="SAMSUNG USED UNLOCKED">
-                        SAMSUNG USED UNLOCKED
-                    </option>
-                    <option value=" MACBOOK">
-                        MACBOOK
-                    </option>
-                    <option value="IPAD">
-                        IPAD
-                    </option>
-                    <option value="WATCHES & AIRPODS">
-                        WATCHES & AIRPODS
-                    </option>
-                    <option value="GAMING">
-                        GAMING
-                    </option>
-                    <option value="TOOLS">
-                        TOOLS
-                    </option>
+                    @foreach($data as $key => $value)
+                    <option value="{{ $value->id }}">{{ $value->name }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="box search-section">
