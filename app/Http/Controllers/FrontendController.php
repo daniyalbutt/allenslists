@@ -19,4 +19,8 @@ class FrontendController extends Controller
         $products = Product::where('category_id', $id)->get();
         return response()->json($products);
     }
+
+    public function pricing(){
+        return view('pricing');
+    }
 }

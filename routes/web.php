@@ -17,6 +17,7 @@ use App\Http\Controllers\FrontendController;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/test', [FrontendController::class, 'pricing'])->name('pricing');
 Route::get('/get-products/{id}', [FrontendController::class, 'getProducts'])->name('get.products');
 
 
