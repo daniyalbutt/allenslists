@@ -49,6 +49,7 @@
 
                 // Run on select change
                 opSelect.addEventListener("change", function () {
+                    document.querySelector(".search-input").value = "";
                     loadProducts(this.value);
                 });
 

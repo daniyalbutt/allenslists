@@ -31,14 +31,11 @@
                 <input type="text" class="search-input" placeholder="Search devices (e.g. '15 Pro 256')" onkeyup="filterDevices()">
             </div>
         </div>
-        <div class="container-fluid">
-            <!-- Device List Section Row -->
-            <div class="row">
-                <div class="col-12 device-list-section">
-                    <div id="loader" style="display:none; text-align:center; padding:20px;">
-                        <div class="spinner"></div>
-                        <p>Loading devices...</p>
-                    </div>
+        <div class="search-result">
+            <div class="device-list-section">
+                <div id="loader" style="display:none; text-align:center; padding:20px;">
+                    <div class="spinner"></div>
+                    <p>Loading devices...</p>
                 </div>
             </div>
             <p class="stolen">We do not buy stolen or unlawfully obtained devices.</p>
