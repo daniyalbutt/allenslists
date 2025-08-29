@@ -38,16 +38,22 @@
                     <a href="{{ route('categories.create') }}" class="nav-link {{ request()->routeIs('categories.create') ? 'active' : '' }}">Create Category</a>
                 </li>
             </ul>
-            <a href="#" class="br-menu-link">
+            <a href="#" class="br-menu-link {{ request()->routeIs('products.*') ? 'active' : '' }}">
                <div class="br-menu-item">
                     <i class="menu-item-icon fa fa-shopping-cart tx-22"></i>
                     <span class="menu-item-label">Products</span>
                     <i class="menu-item-arrow fa fa-angle-down"></i>
                </div>
             </a>
-            <ul class="br-menu-sub nav flex-column">
-               <li class="nav-item"><a href="chart-morris.html" class="nav-link">All Products</a></li>
-               <li class="nav-item"><a href="chart-flot.html" class="nav-link">Create Product</a></li>
+            <ul class="br-menu-sub nav flex-column"
+            style="{{ request()->routeIs('products.*') ? 'display: block;' : '' }}"
+            >
+               <li class="nav-item">
+                    <a href="{{ route('products.index') }}" class="nav-link">All Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('products.create') }}" class="nav-link">Create Product</a>
+                </li>
             </ul>
         </div>
     </div>

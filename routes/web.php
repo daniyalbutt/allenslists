@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,5 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
 });
