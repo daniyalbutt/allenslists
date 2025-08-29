@@ -57,7 +57,21 @@
                     loadProducts(opSelect.value);
                 }
             });
-            </script>
 
+            function filterDevices() {
+                const input = document.querySelector(".search-input");
+                const filter = input.value.toLowerCase();
+                const deviceItems = document.querySelectorAll(".device-list-section .device-item");
+
+                deviceItems.forEach(item => {
+                    const name = item.querySelector(".device-name").textContent.toLowerCase();
+                    if (name.includes(filter)) {
+                        item.style.display = ""; // show
+                    } else {
+                        item.style.display = "none"; // hide
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
