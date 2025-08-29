@@ -15,14 +15,22 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const opSelect = document.querySelector(".form-control.OP");
+                const deviceList = document.querySelector(".device-list-section");
+                const loader = document.getElementById("loader");
 
                 function loadProducts(categoryId) {
+                    // Show loader
+                    loader.style.display = "block";
+                    deviceList.innerHTML = "";
+                    deviceList.appendChild(loader);
+
                     fetch(`/get-products/${categoryId}`)
                         .then(response => response.json())
                         .then(data => {
-                            const deviceList = document.querySelector(".device-list-section");
+                            // Clear old content
                             deviceList.innerHTML = "";
 
+                            // Render products
                             data.forEach(item => {
                                 let div = document.createElement("div");
                                 div.classList.add("device-item");
@@ -33,7 +41,10 @@
                                 deviceList.appendChild(div);
                             });
                         })
-                        .catch(error => console.error("Error:", error));
+                        .catch(error => console.error("Error:", error))
+                        .finally(() => {
+                            loader.style.display = "none";
+                        });
                 }
 
                 // Run on select change
@@ -41,11 +52,12 @@
                     loadProducts(this.value);
                 });
 
-                // Run immediately on first load with the default selected option
+                // Run immediately on first load
                 if (opSelect.value) {
                     loadProducts(opSelect.value);
                 }
             });
-        </script>
+            </script>
+
     </body>
 </html>

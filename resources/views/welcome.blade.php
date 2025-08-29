@@ -35,7 +35,10 @@
             <!-- Device List Section Row -->
             <div class="row">
                 <div class="col-12 device-list-section">
-                    
+                    <div id="loader" style="display:none; text-align:center; padding:20px;">
+                        <div class="spinner"></div>
+                        <p>Loading devices...</p>
+                    </div>
                 </div>
             </div>
             <p class="stolen">We do not buy stolen or unlawfully obtained devices.</p>
