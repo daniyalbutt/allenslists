@@ -291,3 +291,9 @@ header{
   z-index: 99999; /* keep above other content (same as Bootstrap navbar) */
   background-color: #0b1220;
 }
+
+p.stolen {
+    color: #9db3d9;
+    font-size: 12px;
+    opacity: .7;
+}

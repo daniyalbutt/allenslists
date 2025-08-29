@@ -15,21 +15,14 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const opSelect = document.querySelector(".form-control.OP");
-                const deviceItems = document.querySelectorAll(".device-item");
 
-                // On OP change
-                opSelect.addEventListener("change", function () {
-                    const selectedValue = this.value;
-
-                    // Example: If you want to fetch from server (Laravel route)
-                    fetch(`/get-products/${selectedValue}`)
+                function loadProducts(categoryId) {
+                    fetch(`/get-products/${categoryId}`)
                         .then(response => response.json())
                         .then(data => {
-                            // Clear old items
                             const deviceList = document.querySelector(".device-list-section");
                             deviceList.innerHTML = "";
 
-                            // Render new items
                             data.forEach(item => {
                                 let div = document.createElement("div");
                                 div.classList.add("device-item");
@@ -41,7 +34,17 @@
                             });
                         })
                         .catch(error => console.error("Error:", error));
+                }
+
+                // Run on select change
+                opSelect.addEventListener("change", function () {
+                    loadProducts(this.value);
                 });
+
+                // Run immediately on first load with the default selected option
+                if (opSelect.value) {
+                    loadProducts(opSelect.value);
+                }
             });
         </script>
     </body>
